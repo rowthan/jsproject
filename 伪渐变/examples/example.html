@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery smoothScroll Plugin Example</title>
+  <style type="text/css">
+    body {
+      background: linear-gradient(#ED87BD, #434A53);
+      color:#fff;
+      text-align:center;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 1000px;
+      font-size:32px;
+      color:#fff;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+
+<a href="#bottom" id="top">Scroll To Bottom</a>
+<h1>jQuery smoothScroll Plugin Example</h1>
+
+<a href="https://www.jqueryscript.net">This is an usual link; smooth scroll doesn't work on this.</a>
+
+<a href="#top" id="bottom">Back To Top</a>
+
+<script src="jquery.min.js"></script>
+<!-- 做动画需要的 -->
+<script src="jquery.easing.min.js"></script> 
+<script src="../src/jquery.smoothScroll.js"></script>
+<script>
+  $('a').smoothScroll({speed: 3000,
+            easing: 'easeOutBounce',});
+</script>
+
+</body>
+</html>

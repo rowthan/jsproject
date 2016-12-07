@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ab蓝学网网页特效 http://www.ablanxue.com</title>
+<style>
+a,span,p{ line-height:18px; font-size:12px; margin:0; padding:0; color:#0CC; text-decoration:none;}
+.info{ width:50px; height:50px; position:relative; padding:2px; border:1px solid #ccc; cursor:pointer; margin:170px 0 0 20px;; font-size:12px; float:left; }
+.b,.detailinfo{ width:300px; height:128px;  z-index:10; left:0; top:-162px; padding:12px;border:2px solid #eee; border-bottom:0 none; background:#fff; }
+.b{ top:60px;}
+.b dt,.detailinfo dt{ float:left; display:inline;  }
+.b  dd,.detailinfo dd{ padding-left:20px; line-height:14px;}
+.b  .links,.detailinfo .links{ background:#eee; line-height:38px; margin:0 -14px; padding:0 15px; height:38px;}
+.b  .i,.detailinfo .i{ padding: 0 5px; color:#ccc}
+ .b  .bt,.detailinfo .bt{ float:right; border:1px solid #CCC; width:100px; margin: 7px; height:21px; line-height:21px; padding:0 8px; }
+.info .arrow, .ar{background: url("new_index_bg.png") no-repeat scroll -223px -71px transparent; height: 8px;left: 13px;top: -8px;width: 16px; z-index:12; }
+.info .ar{ background-position:-142px -71px; top:54px;}
+.info .arrow, .info .ar, .b,.detailinfo{position:absolute;overflow: hidde;display:none}
+</style>
+</head>
+<body>
+<div class="info" id="info">
+	<img  src="20110725212910762.jpg" width="50" height="50" />
+    <div class="detailinfo" id="detailinfo">
+        <dl>
+        <dt><img  src="20110725212910762.jpg" width="50" height="50" /></dt>
+        <dd>
+        <a href="#">XXX</a>
+        <span>（设置备注）</span>
+        <p>广东，深圳</p>
+        <p>关注粉丝微薄</p>
+        </dd>
+        </dl>
+        <dl>
+        <dt>简介：</dt>
+        <dd>来自五湖四海的朋友，欢迎你们</dd>
+        </dl>
+        <div class="links">
+        <a href="http://www.ablanxue.com">求关注</a>
+           <span class="i">|</span>
+        <span><a href="http://www.ablanxue.com">设置分组</a></span>
+        <div class="bt">
+        <a href="http://www.ablanxue.com">已关注</a>
+        <span class="i">|</span>
+        <span><a href="http://www.ablanxue.com">取消</a></span>
+        </div>
+        </div>
+    </div>
+    <div class="arrow" id="arrow"></div>
+</div>   
+    
+
+
+<script>
+var x=window.x||{};
+x.personalInfo=function(info,detailinfo,arrow){
+    var oinfo=document.getElementById(info);
+    var odetailinfo=document.getElementById(detailinfo);
+    var arrow=document.getElementById(arrow);
+     oinfo.t=null;
+     oinfo.v=null;
+    oinfo.onmouseover=function(){
+        clearTimeout(oinfo.v);
+        oinfo.style.zIndex=20;
+        oinfo.t=setTimeout(function(){
+            if(oinfo.offsetTop>150)    {
+            odetailinfo.className="detailinfo";
+            arrow.className="arrow";        
+            odetailinfo.style.display="block";
+            arrow.style.display="block";}
+        else{
+            odetailinfo.className="b";
+            arrow.className="ar";
+            odetailinfo.style.display="block";
+            arrow.style.display="block";
+            
+            }
+        
+        },300);
+        };
+    oinfo.onmouseout=function(){
+        
+        clearTimeout(oinfo.t);
+        oinfo.v=setTimeout(function(){
+        oinfo.style.zIndex=2;
+        odetailinfo.style.display="none";
+        arrow.style.display="none";},300);
+    
+        }
+    }
+x.personalInfo("info","detailinfo","arrow");
+</script>
+</body>
+</html> 

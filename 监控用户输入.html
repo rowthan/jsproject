@@ -1,0 +1,60 @@
+    <html>  
+    <script>  
+        function moveBox()  
+        {  
+            //  获取需要移动的元素的位置  
+            var box = document.getElementById("square");  
+            debugger;  
+            var width = parseInt(box.style.width);  
+            var height = parseInt(box.style.height);  
+      
+            //  判断按键  
+            var keyCode = window.event.keyCode;  
+              
+            if(keyCode == 97 || keyCode == 65)  //  a-->left  
+            {  
+                var dist = box.style.left;  
+                var newDist = parseInt(dist) - 20;  
+                if(newDist<0)  
+                {  
+                    newDist=0;  
+                }  
+                box.style.left = newDist + "px";  
+            }  
+            else if(keyCode == 119 || keyCode == 87 )   //  w-->up  
+            {  
+                var dist = box.style.top;  
+                var newDist = parseInt(dist) - 20;  
+                if(newDist<0)  
+                {  
+                    newDist = 0;  
+                }  
+                box.style.top = newDist + "px";  
+            }  
+            else if(keyCode == 115 || keyCode == 83)    //  s-->down  
+            {  
+                var dist = box.style.top;  
+                var newDist = parseInt(dist) + 20;  
+                if(newDist+height>window.innerHeight)  
+                {  
+                    newDist=window.innerHeight-height;  
+                }  
+                box.style.top = newDist + "px";  
+            }  
+            else if(keyCode == 100 || keyCode == 68)    //  d-->right  
+            {  
+                var dist = box.style.left;  
+                var newDist = parseInt(dist) + 20;  
+                    if(newDist+width>window.innerWidth)  
+                {  
+                    newDist=window.innerWidth-width;  
+                }  
+                box.style.left = newDist + "px";  
+            }  
+        }  
+    </script>  
+      
+    <body onkeypress="moveBox()">  
+        <p id="square" style="width:60px;height:60px;background:red;position:absolute;left:300px;top:200px"></p>  
+    </body>  
+    </html>  
